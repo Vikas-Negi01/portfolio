@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vikas Negi – Frontend Engineering Lead</title>
+<meta name="description" content="Frontend Engineering Lead with 11+ years modernizing enterprise applications with React, micro-frontends and AI automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --ink: #12161d;
+  --muted: #5b6472;
+  --line: #e1e5ec;
+  --accent: #0f7a62;
+  --accent-soft: #e2f3ee;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* page glow */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(60rem 28rem at 85% -8%, rgba(15,122,98,.10), transparent 70%),
+    radial-gradient(40rem 22rem at -5% 12%, rgba(15,122,98,.06), transparent 70%),
+    radial-gradient(circle, rgba(18,22,29,.07) 1px, transparent 1.4px) 0 0 / 26px 26px;
+  -webkit-mask-image: linear-gradient(#000 0, #000 520px, transparent 900px);
+  mask-image: linear-gradient(#000 0, #000 520px, transparent 900px);
+}
+
+/* header */
+header { position: sticky; top: 0; z-index: 10; background: rgba(248,249,251,.8); backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px); border-bottom: 1px solid transparent; }
+header .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; padding-bottom: 1rem; }
+.brand { display: flex; align-items: center; gap: .65rem; font-family: var(--display); font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+.mark { display: grid; place-items: center; width: 2.1rem; height: 2.1rem; border-radius: 10px; background: var(--accent); color: #fff; font-size: .85rem; letter-spacing: 0; box-shadow: 0 4px 12px rgba(15,122,98,.35); }
+nav { display: flex; gap: .25rem; font-size: .95rem; }
+nav a { text-decoration: none; color: var(--muted); padding: .35rem .75rem; border-radius: 999px; transition: background .2s, color .2s; }
+nav a:hover { color: var(--accent); background: var(--accent-soft); }
+
+/* hero */
+.hero { padding: 4rem 0 4.5rem; }
+.chip { display: inline-flex; align-items: center; gap: .5rem; padding: .35rem .9rem; margin-bottom: 1.5rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: .88rem; color: var(--muted); box-shadow: 0 1px 2px rgba(18,22,29,.04); animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.chip i { width: .5rem; height: .5rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.hero h1 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(2.6rem, 7.8vw, 5rem); line-height: 1.02; letter-spacing: -0.04em;
+  margin: 0 0 1.75rem; max-width: 14ch;
+  animation: rise .7s .06s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero h1 span { color: var(--accent); background: linear-gradient(var(--accent-soft), var(--accent-soft)) 0 90% / 100% 0.3em no-repeat; }
+.hero p { max-width: 58ch; color: var(--muted); font-size: 1.12rem; margin: 0 0 2.25rem; animation: rise .7s .14s cubic-bezier(.2,.7,.2,1) both; }
+.hero p strong { color: var(--ink); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; animation: rise .7s .22s cubic-bezier(.2,.7,.2,1) both; }
+.btn { display: inline-block; padding: .75rem 1.35rem; border-radius: 10px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--line); background: var(--surface); transition: transform .2s, box-shadow .2s, background .2s, border-color .2s, color .2s; }
+.btn:hover { transform: translateY(-2px); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 8px 20px -6px rgba(15,122,98,.5); }
+.btn.primary:hover { background: #0b6551; border-color: #0b6551; }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* sections */
+section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
+h2 { font-family: var(--display); font-size: 1.85rem; letter-spacing: -0.025em; margin: 0 0 2rem; display: flex; align-items: center; gap: .75rem; }
+h2::before { content: ""; width: .5rem; height: 1.5rem; border-radius: 3px; background: var(--accent); }
+
+.meta { color: var(--muted); font-size: .92rem; }
+.meta b { display: block; color: var(--ink); font-weight: 600; font-size: 1rem; }
+h3 { font-family: var(--display); font-size: 1.3rem; letter-spacing: -0.015em; line-height: 1.25; margin: 0 0 .6rem; }
+.row p, .case p { margin: 0 0 .75rem; color: var(--muted); }
+
+/* work cards */
+.case { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem; padding: 1.75rem; margin-bottom: 1.1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 1px 2px rgba(18,22,29,.04), 0 10px 30px -18px rgba(18,22,29,.18); transition: transform .25s, box-shadow .25s, border-color .25s; }
+.case:hover { transform: translateY(-3px); border-color: #b9dccf; box-shadow: 0 1px 2px rgba(18,22,29,.04), 0 18px 40px -18px rgba(15,122,98,.28); }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: .9rem 0 0; }
+.tags li { font-size: .82rem; padding: .2rem .7rem; border-radius: 999px; background: var(--accent-soft); color: #0b5a48; font-weight: 500; }
+
+/* experience timeline */
+.timeline { position: relative; margin-left: .4rem; }
+.timeline::before { content: ""; position: absolute; left: 0; top: .5rem; bottom: .5rem; width: 2px; background: linear-gradient(var(--accent), var(--line)); border-radius: 2px; }
+.row { position: relative; display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem; padding: 0 0 2rem 2rem; }
+.row:last-child { padding-bottom: 0; }
+.row::before { content: ""; position: absolute; left: -5px; top: .45rem; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
+.row:first-child::before { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+
+/* skills */
+.skills { display: grid; grid-template-columns: 11rem 1fr; gap: 1.1rem 1.5rem; margin: 0; }
+.skills dt { font-weight: 600; padding-top: .2rem; }
+.skills dd { margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.skills dd span { font-size: .9rem; padding: .22rem .75rem; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); transition: border-color .2s, color .2s; }
+.skills dd span:hover { border-color: var(--accent); color: var(--accent); }
+
+#contact { border-top: 0; }
+/* contact */
+.contact .panel { padding: 2.5rem; border-radius: 20px; background: #0c3a2f; color: #fff; position: relative; overflow: hidden; }
+.contact .panel::after { content: ""; position: absolute; width: 22rem; height: 22rem; right: -6rem; top: -9rem; border-radius: 50%; background: radial-gradient(circle, rgba(60,200,160,.38), transparent 70%); }
+.contact h2 { color: #fff; margin-bottom: 1rem; }
+.contact h2::before { background: #6fd9bb; }
+.contact p { max-width: 52ch; color: #b8cfc7; margin: 0 0 1.75rem; position: relative; }
+.contact .actions { position: relative; z-index: 1; }
+.contact .btn { border-color: rgba(255,255,255,.25); background: transparent; color: #fff; }
+.contact .btn.primary { background: #fff; color: var(--ink); border-color: #fff; box-shadow: none; }
+.contact .btn:hover { border-color: #fff; color: inherit; }
+.contact .btn.primary:hover { background: var(--accent-soft); border-color: var(--accent-soft); }
+.contact .btn.ghost:hover { color: #fff; background: rgba(255,255,255,.1); }
+footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .88rem; }
+
+@media (max-width: 640px) {
+  .row, .skills, .case { grid-template-columns: 1fr; gap: .4rem; }
+  .case { padding: 1.35rem; }
+  .contact .panel { padding: 1.75rem; }
+  .skills dd { margin-bottom: .6rem; }
+  .hero { padding-top: 3rem; }
+  nav { gap: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero h1, .hero p, .actions { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mark">VN</span>Vikas Negi</a>
+    <nav aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div class="chip"><i></i>Frontend Engineering Lead in Bangalore</div>
+      <h1>I modernize big frontends <span>without stopping them.</span></h1>
+      <p>I'm a Frontend Engineering Lead in Bangalore with <strong>11+ years</strong> across fintech, trading, workplace management and logistics. I lead teams that move large legacy applications to React, one screen at a time, while the business keeps running. I also build AI-assisted workflows with Claude Code, Copilot and n8n.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:vikas.negi3011@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/vikas-negi-764581135" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <section id="work">
+      <h2>Selected work</h2>
+
+      <article class="case">
+        <div class="meta"><b>EquiLend</b>2022 – 2025<br>Led a team of 5</div>
+        <div>
+          <h3>Legacy Java/ExtJS platform to React micro-frontends</h3>
+          <p>Migrated 15 interconnected functional areas of a live securities lending platform without disrupting trading. I built an ExtJS–React bridge so React components could run inside existing ExtJS screens, making modernization gradual instead of a risky rewrite.</p>
+          <p>Owned the UI and architecture for the Post-Trade Suite and Risk Resolution Suite.</p>
+          <ul class="tags"><li>React</li><li>Webpack Module Federation</li><li>ExtJS</li><li>Architecture</li></ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="meta"><b>FIS Global</b>2025 – 2026<br>Led a team of 4</div>
+        <div>
+          <h3>Automation and shared frontend architecture for FIS Retirement</h3>
+          <p>Replaced manual cross-checking across Excel sheets and VBA macros with Matterway workflows, saving an hour per run. Designed reusable React components that cut duplicate code across deliverables.</p>
+          <ul class="tags"><li>React</li><li>Matterway</li><li>Claude Code</li><li>GitHub Copilot</li></ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="meta"><b>Spacewell</b>2018 – 2022</div>
+        <div>
+          <h3>MCS, an integrated workplace management system</h3>
+          <p>Owned frontend development across the space, facility and workplace modules. Integrated BIM and 3D spatial visualization so enterprise clients could explore building data interactively. Also built the internal documentation app for specs and user guides.</p>
+          <ul class="tags"><li>ExtJS</li><li>BIM / 3D</li><li>Mentoring</li></ul>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="meta"><b>Side projects</b>Ongoing</div>
+        <div>
+          <h3>Automation and AI prototypes</h3>
+          <p>Workflows in n8n, Zapier and Matterway for data extraction, validation and notifications. Prototypes using LLMs, prompt engineering and Supabase to explore AI-powered UI features and developer automations.</p>
+          <ul class="tags"><li>n8n</li><li>Zapier</li><li>Supabase</li><li>LLMs</li></ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+
+      <div class="row">
+        <div class="meta"><b>Jul 2025 – Jul 2026</b></div>
+        <div>
+          <h3>Principal Consultant, Genpact</h3>
+          <p>Client: FIS Global. Sprint planning, estimation and production defect triage for a 4-person frontend team.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="meta"><b>Sep 2022 – Jun 2025</b></div>
+        <div>
+          <h3>Principal Consultant, Genpact</h3>
+          <p>Client: EquiLend Holdings. Led the React micro-frontend migration and mentored developers through reviews and pair programming.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="meta"><b>Mar 2018 – Sep 2022</b></div>
+        <div>
+          <h3>Senior Technology Analyst, Spacewell</h3>
+          <p>Frontend owner for MCS. Mentored 3 junior developers and worked with product on feasibility and roadmap.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="meta"><b>Feb 2015 – Mar 2018</b></div>
+        <div>
+          <h3>Frontend Engineer, Infosys</h3>
+          <p>Client: Norfolk Southern. Built reusable ExtJS components for a railway freight dispatch and asset tracking platform.</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Frontend</dt><dd><span>React</span><span>Next.js</span><span>TypeScript</span><span>JavaScript (ES6+)</span><span>Redux</span><span>HTML5</span><span>CSS3</span><span>ExtJS</span></dd>
+        <dt>Backend and APIs</dt><dd><span>Node.js</span><span>REST</span><span>GraphQL</span><span>API and contract design</span></dd>
+        <dt>Architecture</dt><dd><span>Micro-frontends (Module Federation)</span><span>MVC and MVVM</span><span>legacy-to-modern migration</span></dd>
+        <dt>Quality</dt><dd><span>Jest</span><span>React Testing Library</span><span>ESLint</span><span>Web Vitals</span><span>Webpack</span><span>Vite</span></dd>
+        <dt>AI and automation</dt><dd><span>Claude Code</span><span>GitHub Copilot</span><span>OpenAI Codex</span><span>prompt engineering</span><span>Matterway</span><span>n8n</span><span>Zapier</span><span>Supabase</span></dd>
+        <dt>Delivery</dt><dd><span>Git</span><span>GitHub Actions</span><span>CI/CD</span><span>Docker</span><span>Agile/Scrum</span><span>Jira</span><span>Figma</span></dd>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+      <div class="row">
+        <div class="meta"><b>2014</b></div>
+        <div>
+          <h3>B.Tech, Computer Science &amp; Engineering</h3>
+          <p>Lingaya's University, Faridabad</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="panel">
+      <h2>Let's talk</h2>
+      <p>If you're planning a frontend modernization, a micro-frontend architecture or an automation workflow, I'd like to hear about it.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:vikas.negi3011@gmail.com">vikas.negi3011@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/vikas-negi-764581135" target="_blank" rel="noopener">linkedin.com/in/vikas-negi-764581135</a>
+      </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Vikas Negi. Bangalore, India.</div>
+</footer>
+
+</body>
+</html>
