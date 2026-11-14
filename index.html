@@ -71,6 +71,7 @@ nav a:hover { color: var(--accent); background: var(--accent-soft); }
 .actions { display: flex; flex-wrap: wrap; gap: .75rem; animation: rise .7s .22s cubic-bezier(.2,.7,.2,1) both; }
 .btn { display: inline-block; padding: .75rem 1.35rem; border-radius: 10px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--line); background: var(--surface); transition: transform .2s, box-shadow .2s, background .2s, border-color .2s, color .2s; }
 .btn:hover { transform: translateY(-2px); }
+button.btn { font-family: inherit; cursor: pointer; line-height: inherit; }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 8px 20px -6px rgba(15,122,98,.5); }
 .btn.primary:hover { background: #0b6551; border-color: #0b6551; }
 .btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
@@ -157,7 +158,7 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .88rem; }
       <h1>I modernize big frontends <span>without stopping them.</span></h1>
       <p>I'm a Frontend Engineering Lead in Bangalore with <strong>11+ years</strong> across fintech, trading, workplace management and logistics. I lead teams that move large legacy applications to React, one screen at a time, while the business keeps running. I also build AI-assisted workflows with Claude Code, Copilot and n8n.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:vikas.negi3011@gmail.com">Email me</a>
+        <a class="btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=vikas.negi3011@gmail.com&su=Hello%20Vikas" target="_blank" rel="noopener">Email me</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/vikas-negi-764581135" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
@@ -268,7 +269,8 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .88rem; }
       <h2>Let's talk</h2>
       <p>If you're planning a frontend modernization, a micro-frontend architecture or an automation workflow, I'd like to hear about it.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:vikas.negi3011@gmail.com">vikas.negi3011@gmail.com</a>
+        <a class="btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=vikas.negi3011@gmail.com&su=Hello%20Vikas" target="_blank" rel="noopener">Email me</a>
+        <button class="btn ghost" id="copy" type="button" data-email="vikas.negi3011@gmail.com">Copy email address</button>
         <a class="btn ghost" href="https://www.linkedin.com/in/vikas-negi-764581135" target="_blank" rel="noopener">linkedin.com/in/vikas-negi-764581135</a>
       </div>
       </div>
@@ -280,5 +282,14 @@ footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .88rem; }
   <div class="wrap">&copy; 2026 Vikas Negi. Bangalore, India.</div>
 </footer>
 
+<script>
+document.getElementById('copy').addEventListener('click', function () {
+  var btn = this, email = btn.dataset.email, label = btn.textContent;
+  function done() { btn.textContent = 'Copied \u2713'; setTimeout(function () { btn.textContent = label; }, 1800); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(email).then(done, function () { window.prompt('Copy this address:', email); });
+  } else { window.prompt('Copy this address:', email); }
+});
+</script>
 </body>
 </html>
